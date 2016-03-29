@@ -1,0 +1,89 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="AnimalType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="default"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProfesorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="default"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PersonaType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="default"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Profesor">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Profesor"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Persona">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Persona"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="owl:NamedIndividual">
+    <xs:complexType>
+      <xs:attribute name="rdf:about" type="AnimalType"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="owl:NamedIndividual">
+    <xs:complexType>
+      <xs:attribute name="rdf:about" type="ProfesorType"/>
+    </xs:complexType>
+    <xs:sequence>
+      <xs:element name="Profesor">
+        <xs:complexType>
+          <xs:attribute name="rdf:type" type="Profesor"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:sequence>
+      <xs:element name="da_clase">
+        <xs:complexType>
+          <xs:attribute name="rdf:about" type="ProfesorType"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:element>
+  <xs:element name="owl:NamedIndividual">
+    <xs:complexType>
+      <xs:attribute name="rdf:about" type="PersonaType"/>
+    </xs:complexType>
+    <xs:sequence>
+      <xs:element name="Persona">
+        <xs:complexType>
+          <xs:attribute name="rdf:type" type="Persona"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:sequence>
+      <xs:element name="edad">
+        <xs:complexType>
+          <xs:attribute name="rdf:about" type="PersonaType"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:sequence>
+      <xs:element name="amigo">
+        <xs:complexType>
+          <xs:attribute name="rdf:about" type="PersonaType"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:sequence>
+      <xs:element name="padre">
+        <xs:complexType>
+          <xs:attribute name="rdf:about" type="PersonaType"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:element>
+  <xs:simpleType name="edadType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="default"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
